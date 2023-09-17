@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>😂😂</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-box">
+        <h1 class="text" style="padding-bottom: 10px;">Want a Joke?</h1>
+
+        <form action="/joke" method="post">
+            <select name="Category" id="">
+                <option value="Any">Any</option>
+                <option value="Misc">Misc</option>
+                <option value="Programming">Programming</option>
+                <option value="Dark">Dark</option>
+                <option value="Pun">Pun</option>
+                <option value="Spooky">Spooky</option>
+                <option value="Christmas">Christmas</option>
+            </select>
+            <input type="submit" class="btn btn-normal">
+        </form>
+        <div style="height: 20px;"></div>
+        <h5 class="text">
+            <% if (setup) { %>
+                <%= setup %>
+                <div style="height: 10px;"></div>
+                <button class="btn btn-normal" id="show-button">Show</button>
+                <p id="delivery" style="display: none"><%= delivery %></p>
+            <% } else { %>
+                <%= joke %>
+                
+            <% } %>
+            
+        </h5>
+    </div>
+    <script>
+        document.getElementById("show-button").addEventListener("click", function() {
+            document.getElementById("delivery").style.display = "inline"
+            document.getElementById("show-button").style.display = "none"
+        })
+    </script>
+</body>
+</html>
